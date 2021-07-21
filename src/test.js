@@ -1,8 +1,8 @@
 import client from './apiClient';
+jest.setTimeout(15000);
 
 // All requests should run at the same time and produce only one request
 // to the backend. All requests should return or reject.
-jest.setTimeout(15000);
 describe('batch requests', () => {
   const batchUrl = '/file-batch-api';
 
