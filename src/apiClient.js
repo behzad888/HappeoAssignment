@@ -10,7 +10,7 @@ const client = (userConfig = {}) => {
 
   const instance = axios.create(config);
   batchInterceptor(instance);
-  return instance;
+  return {...axios, ...instance};
 };
 
 export default client;

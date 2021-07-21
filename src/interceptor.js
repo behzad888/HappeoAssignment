@@ -27,7 +27,7 @@ function batchInterceptor(instance) {
         );
       }
 
-      return data;
+      return data.items;
     },
     (error) => Promise.reject(error)
   );
