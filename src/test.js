@@ -27,10 +27,11 @@ describe('batch requests', () => {
       params: {ids: ['fileid1', 'fileid3']},
     });
 
-    //we can also use apiClient.all() and apiClient.spread here
-    //But, with Promise.all() there is a specific behavior.
+    //We can use apiClient.all() and apiClient.spread() too.
+    //Note that, with Promise.all() there is a specific behavior.
     //In this case at least one request will be rejected and
-    //all requests will be rejected and code will go to .catch() sections
+    //all requests will be rejected and code will go to .catch() section.
+    //So, Promise.allSettled is safer FOR THIS CASE.
     var [firstResponse, secondResponse, thirdResponse, fourthResponse] =
       await Promise.allSettled([
         firstRequest,
